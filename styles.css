@@ -185,7 +185,74 @@ nav > p > span {
     height: auto;
     margin-left: 2rem;
 }
+.productgap{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* =========== displaying of single product details ============== */
+.product-detail{
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    width: 48rem;
+    padding: 1rem 2rem;
+    display: flex;
+    border-radius: 10px;
+    box-sizing: border-box;
+    gap: 6rem;
+}
+.product-detail > .left{
+    padding: 1rem 2rem;
+    border-right: none;
+    width: 16rem;
+    padding: 2rem;
+}
+.product-detail > .left > img{
+    width: 19rem;
+    height: 19rem;
+    border-radius: 5px;
+}
+.product-detail > .right{
+    padding: 1rem 5rem;
+    border-left: none;
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+.right > .buttons{
+    display: flex;
+    gap: 2rem;
 
+}
+.right > .buttons > .cancel{
+    background-color: red;
+    width: 8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: #fff;
+    font-size: large;
+}
+.right > .buttons > .add{
+    background-color: #6dbd28;
+    width: 8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: #fff;
+    font-size: large;
+}
 /* Media Queries */
 @media (max-width: 1200px) {
     .main-product {

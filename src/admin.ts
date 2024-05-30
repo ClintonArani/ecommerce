@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const productData: Product = await response.json();
 
             // Populate the form with the current data for the product
-            (document.getElementById('productId') as HTMLInputElement).value = productId!;
+            (document.getElementById('number') as HTMLInputElement).value = productId!;
             (document.getElementById('product') as HTMLInputElement).value = productData.product;
             (document.getElementById('description') as HTMLInputElement).value = productData.description;
             (document.getElementById('amount') as HTMLInputElement).value = productData.amount.toString();
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <td>${product.description}</td>
                             <td>${product.amount}</td>
                             <td>${product.category}</td>
-                            <td><div class="viewProduct">View</div></td>
+                            <!--<td><div class="viewProduct">View</div></td>-->
                             <td><div class="updateProduct" data-id="${product.id}">Update</div></td>
                             <td><div class="deleteProduct" data-id="${product.id}">Delete</div></td>
                         `;
@@ -218,7 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${product.imageUrl}" alt="${product.product}">
                     <h3>${product.product}</h3>
                     <p>${product.description}</p>
+                    <p><b>description:</b> $${product.description}</p>
                     <p><b>Price:</b> $${product.amount}</p>
+                    
                 `;
                 productContainer.appendChild(productDiv);
             });
@@ -257,44 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to calculate the sum of amounts in an array of products
     const sum = (products: Product[]): number => {
         return products.reduce((total, product) => total + product.amount, 0);
-    };
-
-    // Update table data function to include sum calculation
-    const onloadTable = async () => {
-        const tableBody = document.querySelector('tbody');
-        if (tableBody) {
-            tableBody.innerHTML = '';
-            try {
-                const response = await fetch('http://localhost:3000/products');
-                if (response.ok) {
-                    const data: Product[] = await response.json();
-
-                    // Calculate total amount
-                    const totalAmount = sum(data);
-
-                    // Display total amount in table footer
-                    const tableFooter = document.querySelector('tfoot');
-                    if (tableFooter) {
-                        tableFooter.innerHTML = `
-                            <tr>
-                                <td colspan="3">Total:</td>
-                                <td>$${totalAmount.toFixed(2)}</td>
-                                <td colspan="3"></td>
-                            </tr>
-                        `;
-                    }
-
-                    // Display total amount in card items
-                    const amountElements = document.querySelectorAll('.amount--value');
-                    amountElements.forEach(element => {
-                        element.textContent = `$${totalAmount.toFixed(2)}`;
-                    });
-                }
-            } catch (error) {
-                showMessage("An error occurred while loading data. Please try again.");
-                console.error('There has been a problem with your fetch operation:', error);
-            }
-        }
     };
 
     // Load the initial table data when the page is loaded

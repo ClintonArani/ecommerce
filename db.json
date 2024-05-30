@@ -1,19 +1,10 @@
 {
   "products": [
     {
-      "number": "1",
-      "product": "Apple iPhone 13",
-      "description": "The Apple iPhone 14 features a 6.1-inch OLED display, A15 Bionic chip, dual 12MP cameras, and 5G connectivity.",
-      "amount": "999",
-      "category": "Electronics",
-      "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT83lQ8NglyWSy-xPw8rxZ-TT8IQ18E7pRZn8j5ALQjNvGaDNLmtsBbI1CbPRnlzpHmFSMCT7N2ZwSYVhwv4Zc8mM9GkZcxOv3bxQ7xRcXVCr2ylKwV-AIUV4s&usqp=CAc",
-      "id": "21c9"
-    },
-    {
       "id": "6edd",
       "number": "2",
       "product": "Sony WH-1000XM4 Wireless Headphones",
-      "description": "These premium noise-canceling headphones deliver exceptional sound quality, 30 hours of battery life.",
+      "description": "These premium noise-canceling headphones.",
       "amount": "349",
       "category": "Electronics",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT3uI1EW00UewDF6p47xgwVmB7IpNp6Bg2MIzOi4lJgaToetejsYDz-VwuwvJU0ZQosdzUzQjsjPtC22CuVIuK10nJJoCBCqIrpxgjzAdm13YzXb4M0SFzbCE9Q6Sdrp-dftw01hW9G&usqp=CAc"
@@ -30,10 +21,10 @@
     {
       "number": "4",
       "product": "Apple iPhone 13",
-      "description": "These premium noise-canceling headphones deliver exceptional sound quality, 30 hours of battery life, and a comfortable fit. Features include touch controls, voice assistant compatibility, and adaptive sound control.",
+      "description": "These premium noise-canceling headphones deliver exceptional sound quality.",
       "amount": "999",
       "category": "Outdoor Gear",
-      "imageUrl": "https://m.media-amazon.com/images/I/61fJq6t-vrL._AC_SX679_.jpg",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT3uI1EW00UewDF6p47xgwVmB7IpNp6Bg2MIzOi4lJgaToetejsYDz-VwuwvJU0ZQosdzUzQjsjPtC22CuVIuK10nJJoCBCqIrpxgjzAdm13YzXb4M0SFzbCE9Q6Sdrp-dftw01hW9G&usqp=CAc",
       "id": "5d75"
     },
     {
@@ -49,7 +40,7 @@
       "id": "044a",
       "number": "6",
       "product": "Apple iPhone 14",
-      "description": "The latest smartphone from Apple featuring a 6.1-inch Super Retina XDR display, A15 Bionic chip, dual-camera system, and 5G capability.",
+      "description": "The latest smartphone from Apple  6.1-inch Super Retina XDR display.",
       "amount": "600",
       "category": "Electronics",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS_ew-jX6rlpg2qeGmFRMbz8ahMqhbVk6ny3vkqwz1hSH0kVsX5c_1zZp911PRWLtMeSUtSLxIFKcZC2WXKedNpT4iCFNXfXxK6b_2auLDgHBuAgyIm4NaW8w4pb0iTA0qmsLeXVX3s&usqp=CAc"
@@ -58,7 +49,7 @@
       "id": "4eb2",
       "number": "7",
       "product": "Samsung Galaxy S22",
-      "description": "A high-end Android smartphone with a 6.2-inch Dynamic AMOLED display, Exynos 2100 processor, triple-camera setup, and 5G support.",
+      "description": "A high-end Android smartphone with a 6.2-inch Dynamic AMOLED display.",
       "amount": "586",
       "category": "Electronics",
       "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTmhpuBPM9SrQo6rwR-OxXpu602KjaC75rE4H6cMcAliQ7h6F7okexJy2Lzc6Ld1t8m2xOMlgzIZzs8A1tDLufrR5WkJw0wBrFzA5cN978Gejq0qGR4GHsJatykIinRIWKZ1f1bq3Q&usqp=CAc"
@@ -67,19 +58,28 @@
       "id": "6c38",
       "number": "8",
       "product": "Canon EOS R5",
-      "description": " High-performance mirrorless camera with a 45MP full-frame sensor, 8K video recording, and advanced autofocus system.",
+      "description": " High-performance mirrorless camera with a 45MP full-frame sensor.",
       "amount": "978",
       "category": "Cameras",
       "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSxTo6sBY-2uKSDCLzxNoobWg_ZyKBJ1SnN9i5QODztcGSyGEyILrTBIT-D76U5CgTBL6nufcJ9GN7BTqxGaW4Zj9iQz0-op1hLcU86fFz3IfbviQgKNe0wF-Ef_xCufwlZ8FhKr7RO_w&usqp=CAc"
     },
     {
-      "id": "9480",
+      "id": "0921",
       "number": "4",
       "product": "Apple iPhone 13",
-      "description": "6.7 inches, 1284 x 2778 px, 120 Hz Display with Large Notch",
-      "amount": "786",
+      "description": "These premium noise-canceling headphones deliver exceptional sound quality.",
+      "amount": "999",
+      "category": "Outdoor Gear",
+      "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSJTDXCKkvwW9qk01_-YkaD0EKBWaQmGPdwV598aF3uPHi_C2TDSJSra-72j1q0sXVc8-FcR807HI6SB6GW2AitfTJQ80E_cZ7lMwNt4PaWfyDzk7T4e7DLsrCV4uvh5ffMSMXlPg&usqp=CAc"
+    },
+    {
+      "id": "4c1b",
+      "number": "10",
+      "product": "projector",
+      "description": "best projector in the market",
+      "amount": "1000",
       "category": "Electronics",
-      "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRbZMxilZBFLBnw9hDFN-GtIDMWlh13w4cXMMAXEH9vM20emLGsBJ0Q12yqQliDkOPf7lvPPrVQSxLHlxPtDdyk9NHVj8kSIo1NiRJyIXontEGLpTjHs-IJxQSX4Hm1791IO3C6JOw&usqp=CAc"
+      "imageUrl": "data:image/webp;base64,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"
     }
   ]
 }

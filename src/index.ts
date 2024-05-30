@@ -19,24 +19,71 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const response = await fetch("http://localhost:3000/products");
             const products = await response.json();
-            productContainer.innerHTML = "";
-            products.forEach((product: any) => {
-                const productDiv = document.createElement("div");
-                productDiv.classList.add("product");
-                productDiv.innerHTML = `
-                    <img src="${product.imageUrl}" alt="${product.name}">
+            productContainer.innerHTML = products.map((product: any) => `
+                <div class="product productgap" data-product-id="${product.id}">
+                    <img src="${product.imageUrl}" alt="${product.product}">
                     <h3>${product.product}</h3>
-                    <p>${product.description}</p>
-                    <p><b>Price:</b>&nbsp$${product.amount}</p>
-                `;
-                productContainer.appendChild(productDiv);
-            });
-
+                    <p><b>Description:</b> $${product.description}</p>
+                    <p><b>Price:</b> $${product.amount}</p>
+                </div>
+            `).join('');
+            setupProductClickHandlers();
         } catch (error) {
-            showMessage("Failed to fetch products.");
+            showMessage("Failed to fetch products");
         }
     };
 
-    // Initial fetch and display of products
+    // Function to display a single product
+    const displayProduct = async (productId: string) => {
+        try {
+            const response = await fetch(`http://localhost:3000/products/${productId}`);
+            const product = await response.json();
+            productContainer.innerHTML = `
+                <div class="product-detail " data-product-id="${product.id}">
+                    <div class="left">
+                        <img src="${product.imageUrl}" alt="${product.product}">
+                    </div>
+                    <div class="right">
+                        <h3>${product.product}</h3>
+                        <p><b>Category:</b> $${product.category}</p>
+                        <p><b>Description:</b> $${product.description}</p>
+                        <p><b>Price:</b> $${product.amount}</p>
+                        <div class="buttons">
+                            <div class="cancel "><p>drop cart</p><p>&minus;</p></div>
+                            <div class="add"><p>Add to cart</p><p>&plus;</p></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            setupSingleProductClickHandler();
+        } catch (error) {
+            showMessage("Failed to fetch product details");
+        }
+    };
+
+    // Event listener for single product click to revert to all products
+    const setupSingleProductClickHandler = () => {
+        const productDetail = document.querySelector('.product-detail');
+        if (productDetail) {
+            productDetail.addEventListener('click', () => {
+                fetchAndDisplayProducts();
+            });
+        }
+    };
+
+    // Event listener for product clicks
+    const setupProductClickHandlers = () => {
+        const products = document.querySelectorAll('.product');
+        products.forEach(product => {
+            product.addEventListener('click', () => {
+                const productId = product.getAttribute('data-product-id');
+                if (productId) {
+                    displayProduct(productId);
+                }
+            });
+        });
+    };
+
+    // Initialize fetch and display products
     fetchAndDisplayProducts();
 });
