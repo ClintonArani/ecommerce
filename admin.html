@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./admin.css">
+    <!-- Font Awesome Cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">big kaka</div>
+        <ul class="menu">
+            <li class="active">
+                <a href="#">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-plus-square"></i>
+                    <span>Create</span>
+                </a>
+            </li>
+            <li>
+                <a id="viewAll" href="#">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <span>View All</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-arrows-h" aria-hidden="true"></i>
+                    <span>User Interface</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main--content">
+        <div class="confirm">
+            <i class="fa fa-check-square" aria-hidden="true"></i>
+            <p id="confirmationText">hello there mr admin</p>
+        </div>
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Admin</span>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="user--info">
+                <div class="search--box">
+                    <i class="fa-solid fa-search" id="searchIcon"></i>
+                    <input type="text" placeholder="search" id="searchInput">
+                </div>
+                <img src="./images/bill.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="card--container" id="cardContainer">
+            <h3 class="main--title">Today's data</h3>
+            <div class="card--wrapper" id="cardWrapper">
+                <div class="payment--card light-red">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">Items amount</span>
+                            <span class="amount--value"></span>
+                        </div>
+                        <i class="fas fa-dollar-sign icon"></i>
+                    </div>
+                    <span class="card-detail">**** **** **** 3484</span>
+                </div>
+
+                <div class="payment--card light-purple">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">Payment order</span>
+                            <span class="amount--value">$200.00</span>
+                        </div>
+                        <i class="fas fa-list icon dark-purple"></i>
+                    </div>
+                    <span class="card-detail">**** **** **** 5542</span>
+                </div>
+
+                <div class="payment--card light-green">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">Payment customer</span>
+                            <span class="amount--value">$350.00</span>
+                        </div>
+                        <i class="fas fa-users icon dark-green"></i>
+                    </div>
+                    <span class="card-detail">**** **** **** 8896</span>
+                </div>
+
+                <div class="payment--card light-blue">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">Payment proceed</span>
+                            <span class="amount--value">$1305.00</span>
+                        </div>
+                        <i class="fas fa-check icon dark-blue"></i>
+                    </div>
+                    <span class="card-detail">**** **** **** 7745</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabular--wrapper">
+            <h3 class="main--title">Product data</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th class="action" colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody">
+                        <tr data-id="1">
+                            <!-- rows  goes here -->
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="8">Total: $268</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="main-product" id="productContainer">
+        
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Modal -->
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="dataForm">
+                <input type="hidden" id="formAction" value="">
+                <input type="hidden" id="productId" value="">
+                <div>
+                    <input class="input" type="number" id="number" name="number" required placeholder="Enter Id number">
+                </div>
+                <div>
+                    <input class="input" type="text" id="product" name="product" required placeholder="Enter product name">
+                </div>
+                <div>
+                    <input class="input" type="text" id="description" name="description" required placeholder="Enter product description">
+                </div>
+                <div>
+                    <input class="input" type="text" id="amount" name="amount" required placeholder="Enter the product amount">
+                </div>
+                <div>
+                    <input class="input" type="text" id="category" name="category" required placeholder="Enter product category">
+                </div>
+                <div>
+                    <input class="input" type="url" id="imageUrl" name="imageUrl" required placeholder="Enter product image url">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="confirm">
+        <p id="confirmationText"></p>
+    </div>
+
+    <script src="./dist/admin.js"></script>
+</body>
+</html>

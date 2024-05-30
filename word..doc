@@ -1,0 +1,275 @@
+ // Event listener for the "View All" button
+    if (viewAllButton) {
+        viewAllButton.addEventListener('click', async (event) => {
+            event.preventDefault();
+            if (isViewAllActive) {
+                // Hide the items
+                const cardWrapper = document.getElementById('cardWrapper');
+                if (cardWrapper) {
+                    cardWrapper.innerHTML = '';
+                }
+                isViewAllActive = false;
+            } else {
+                // Show the items
+                const items = await fetchData();
+                updateCardContainer(items);
+                isViewAllActive = true;
+            }
+        });
+    }
+
+
+    // Function to update the card container with fetched data
+    const updateCardContainer = (items: Product[]) => {
+        const cardWrapper = document.getElementById('cardWrapper');
+
+        if (cardWrapper) {
+            // Hide current items
+            cardWrapper.innerHTML = '';
+
+            // Populate with new items
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'payment--card';
+                card.innerHTML = `
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">${item.product}</span>
+                            <span class="amount--value">${item.amount}</span>
+                        </div>
+                        <img src="${item.imageUrl}" alt="${item.product}" class="product-image">
+                    </div>
+                    <span class="card-detail">${item.description}</span>
+                `;
+                cardWrapper.appendChild(card);
+            });
+
+            // Adjust the container height based on the number of items
+            cardWrapper.style.height = `${items.length * 150}px`;
+        }
+    };
+
+
+
+
+    // Function to fetch data from db.json
+    const fetchData = async (): Promise<Product[]> => {
+        try {
+            const response = await fetch('http://localhost:3000/products');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            return [];
+        }
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+    // Define the structure of a product
+interface Product {
+    id: number;
+    product: string;
+    description: string;
+    amount: number;
+    category: string;
+    imageUrl: string;
+}
+
+// When the DOM is fully loaded...
+document.addEventListener('DOMContentLoaded', () => {
+    // Get references to various elements on the page
+    const formModal = document.getElementById('formModal') as HTMLElement;
+    const closeModal = document.querySelector('.close') as HTMLElement;
+    const form = document.getElementById('dataForm') as HTMLFormElement;
+    const formAction = document.getElementById('formAction') as HTMLInputElement;
+    const confirmDiv = document.querySelector('.confirm') as HTMLElement;
+    const confirmationMessage = document.querySelector(".confirm") as HTMLElement;
+    const confirmationText = document.getElementById("confirmationText") as HTMLElement;
+    const viewAllButton = document.querySelector('.menu .fa-eye')?.closest('li');
+    const cardContainer = document.getElementById('cardContainer') as HTMLElement;
+
+    // Function to open the modal form for creating or updating a product
+    const openModal = (action: string) => {
+        formAction.value = action;
+        formModal.style.display = 'block';
+    };
+
+    // Function to close the modal form
+    const closeModalFunction = () => {
+        formModal.style.display = 'none';
+    };
+
+    // Close the modal when the close button is clicked
+    closeModal.onclick = closeModalFunction;
+
+    // Close the modal when clicking outside the modal
+    window.onclick = (event: MouseEvent) => {
+        if (event.target === formModal) {
+            closeModalFunction();
+        }
+    };
+
+    // Show a message in the confirmation div
+    const showMessage = (message: string) => {
+        confirmationText.textContent = message;
+        confirmationMessage.style.display = "flex";
+        setTimeout(() => {
+            confirmationMessage.style.display = "none";
+        }, 3000);
+    };
+
+    // Handle updating a product
+    const handleUpdateProduct = async (event: Event) => {
+        const button = event.target as HTMLButtonElement;
+        const productId = button.dataset.id;
+
+        try {
+            const response = await fetch(`http://localhost:3000/products/${productId}`);
+            if (!response.ok) {
+                throw new Error("Failed to fetch product data for update.");
+            }
+            const productData: Product = await response.json();
+
+            // Populate the form with the current data for the product
+            document.getElementById('productId').value = productId;
+            document.getElementById('product').value = productData.product;
+            document.getElementById('description').value = productData.description;
+            document.getElementById('amount').value = productData.amount.toString();
+            document.getElementById('category').value = productData.category;
+
+            // Open the modal form for updating the product
+            openModal('update');
+        } catch (error) {
+            showMessage("An error occurred. Please try again.");
+            console.error('There has been a problem with your fetch operation:', error);
+        }
+    };
+
+    // Handle deleting a product
+    const handleDeleteProduct = async (event: Event) => {
+        const button = event.target as HTMLButtonElement;
+        const productId = button.dataset.id;
+
+        try {
+            const response = await fetch(`http://localhost:3000/products/${productId}`, {
+                method: "DELETE"
+            });
+            if (response.ok) {
+                showMessage("Product deleted successfully!");
+                // Reload the table data after deleting the product
+                loadTableData();
+            } else {
+                throw new Error("Failed to delete product.");
+            }
+        } catch (error) {
+            showMessage("An error occurred. Please try again.");
+            console.error('There has been a problem with your fetch operation:', error);
+        }
+    };
+
+    // Load the table data when the page is loaded
+    const loadTableData = async () => {
+        const tableBody = document.querySelector('tbody');
+        if (tableBody) {
+            tableBody.innerHTML = '';
+            try {
+                const response = await fetch('http://localhost:3000/products');
+                if (response.ok) {
+                    const data: Product[] = await response.json();
+                    data.forEach((product, index) => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${index + 1}</td>
+                            <td>${product.product}</td>
+                            <td>${product.description}</td>
+                            <td>${product.amount}</td>
+                            <td>${product.category}</td>
+                            <td><button class="viewProduct">View</button></td>
+                            <td><button class="updateProduct" data-id="${product.id}">Update</button></td>
+                            <td><button class="deleteProduct" data-id="${product.id}">Delete</button></td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+
+                    // Add event listeners to the update and delete buttons
+                    document.querySelectorAll('.deleteProduct').forEach(button => {
+                        button.addEventListener('click', handleDeleteProduct);
+                    });
+                    document.querySelectorAll('.updateProduct').forEach(button => {
+                        button.addEventListener('click', handleUpdateProduct);
+                    });
+                }
+            } catch (error) {
+                showMessage("An error occurred while loading data. Please try again.");
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
+    };
+
+    // Function to fetch data from db.json
+    const fetchData = async (): Promise<Product[]> => {
+        try {
+            const response = await fetch('http://localhost:3000/products');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            return [];
+        }
+    };
+
+    // Function to update the card container with fetched data
+    const updateCardContainer = (items: Product[]) => {
+        const cardWrapper = document.getElementById('cardWrapper');
+
+        if (cardWrapper) {
+            // Hide current items
+            cardWrapper.innerHTML = '';
+
+            // Populate with new items
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'payment--card';
+                card.innerHTML = `
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">${item.product}</span>
+                            <span class="amount--value">${item.amount}</span>
+                        </div>
+                        <img src="${item.imageUrl}" alt="${item.product}" class="product-image">
+                    </div>
+                    <span class="card-detail">${item.description}</span>
+                `;
+                cardWrapper.appendChild(card);
+            });
+        }
+    };
+
+    // Event listener for the "View All" button
+    if (viewAllButton) {
+        viewAllButton.addEventListener('click', async (event) => {
+            event.preventDefault();
+            const items = await fetchData();
+            updateCardContainer(items);
+        });
+    }
+
+    // Load the initial table data when the page is loaded
+    loadTableData();
+});

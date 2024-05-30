@@ -1,0 +1,85 @@
+{
+  "products": [
+    {
+      "number": "1",
+      "product": "Apple iPhone 13",
+      "description": "The Apple iPhone 14 features a 6.1-inch OLED display, A15 Bionic chip, dual 12MP cameras, and 5G connectivity.",
+      "amount": "999",
+      "category": "Electronics",
+      "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT83lQ8NglyWSy-xPw8rxZ-TT8IQ18E7pRZn8j5ALQjNvGaDNLmtsBbI1CbPRnlzpHmFSMCT7N2ZwSYVhwv4Zc8mM9GkZcxOv3bxQ7xRcXVCr2ylKwV-AIUV4s&usqp=CAc",
+      "id": "21c9"
+    },
+    {
+      "id": "6edd",
+      "number": "2",
+      "product": "Sony WH-1000XM4 Wireless Headphones",
+      "description": "These premium noise-canceling headphones deliver exceptional sound quality, 30 hours of battery life.",
+      "amount": "349",
+      "category": "Electronics",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT3uI1EW00UewDF6p47xgwVmB7IpNp6Bg2MIzOi4lJgaToetejsYDz-VwuwvJU0ZQosdzUzQjsjPtC22CuVIuK10nJJoCBCqIrpxgjzAdm13YzXb4M0SFzbCE9Q6Sdrp-dftw01hW9G&usqp=CAc"
+    },
+    {
+      "id": "25a6",
+      "number": "3",
+      "product": "laptop",
+      "description": "the best laptop of the year",
+      "amount": "500",
+      "category": "Electronics",
+      "imageUrl": "data:image/webp;base64,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"
+    },
+    {
+      "number": "4",
+      "product": "Apple iPhone 13",
+      "description": "These premium noise-canceling headphones deliver exceptional sound quality, 30 hours of battery life, and a comfortable fit. Features include touch controls, voice assistant compatibility, and adaptive sound control.",
+      "amount": "999",
+      "category": "Outdoor Gear",
+      "imageUrl": "https://m.media-amazon.com/images/I/61fJq6t-vrL._AC_SX679_.jpg",
+      "id": "5d75"
+    },
+    {
+      "id": "72b0",
+      "number": "5",
+      "product": "Jordan Air-4 retro",
+      "description": "very best shoe for wearing",
+      "amount": "56",
+      "category": "Shoes",
+      "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRK7S-aK5uwycgachkhun91ZwoE6s6ZT20sRHVX-sHBNYx_om6DiuhbUBGsVhDvZAcn2OY51JdClB94pypaNHZJ9NbRw7p06bINNh2dJJgwbo-f2vtBWrg3pQ&usqp=CAc"
+    },
+    {
+      "id": "044a",
+      "number": "6",
+      "product": "Apple iPhone 14",
+      "description": "The latest smartphone from Apple featuring a 6.1-inch Super Retina XDR display, A15 Bionic chip, dual-camera system, and 5G capability.",
+      "amount": "600",
+      "category": "Electronics",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS_ew-jX6rlpg2qeGmFRMbz8ahMqhbVk6ny3vkqwz1hSH0kVsX5c_1zZp911PRWLtMeSUtSLxIFKcZC2WXKedNpT4iCFNXfXxK6b_2auLDgHBuAgyIm4NaW8w4pb0iTA0qmsLeXVX3s&usqp=CAc"
+    },
+    {
+      "id": "4eb2",
+      "number": "7",
+      "product": "Samsung Galaxy S22",
+      "description": "A high-end Android smartphone with a 6.2-inch Dynamic AMOLED display, Exynos 2100 processor, triple-camera setup, and 5G support.",
+      "amount": "586",
+      "category": "Electronics",
+      "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTmhpuBPM9SrQo6rwR-OxXpu602KjaC75rE4H6cMcAliQ7h6F7okexJy2Lzc6Ld1t8m2xOMlgzIZzs8A1tDLufrR5WkJw0wBrFzA5cN978Gejq0qGR4GHsJatykIinRIWKZ1f1bq3Q&usqp=CAc"
+    },
+    {
+      "id": "6c38",
+      "number": "8",
+      "product": "Canon EOS R5",
+      "description": " High-performance mirrorless camera with a 45MP full-frame sensor, 8K video recording, and advanced autofocus system.",
+      "amount": "978",
+      "category": "Cameras",
+      "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSxTo6sBY-2uKSDCLzxNoobWg_ZyKBJ1SnN9i5QODztcGSyGEyILrTBIT-D76U5CgTBL6nufcJ9GN7BTqxGaW4Zj9iQz0-op1hLcU86fFz3IfbviQgKNe0wF-Ef_xCufwlZ8FhKr7RO_w&usqp=CAc"
+    },
+    {
+      "id": "9480",
+      "number": "4",
+      "product": "Apple iPhone 13",
+      "description": "6.7 inches, 1284 x 2778 px, 120 Hz Display with Large Notch",
+      "amount": "786",
+      "category": "Electronics",
+      "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRbZMxilZBFLBnw9hDFN-GtIDMWlh13w4cXMMAXEH9vM20emLGsBJ0Q12yqQliDkOPf7lvPPrVQSxLHlxPtDdyk9NHVj8kSIo1NiRJyIXontEGLpTjHs-IJxQSX4Hm1791IO3C6JOw&usqp=CAc"
+    }
+  ]
+}
