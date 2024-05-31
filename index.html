@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce website</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-    <!-- ========== HEADER SECTION ========== -->
-    <header>
-        <div class="confirm" id="confirmationMessage">
-            <div class="message">
-                <ion-icon class="checkmark" name="checkmark-outline"></ion-icon>
-                <p id="confirmationText"></p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ecommerce website</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <!-- ========== HEADER SECTION ========== -->
+        <div class="maincontainer">
+            <header>
+                <div class="confirm" id="confirmationMessage">
+                    <div class="message">
+                        <ion-icon class="checkmark" name="checkmark-outline"></ion-icon>
+                        <p id="confirmationText"></p>
+                    </div>
+                </div>
+                <nav>
+                    <h2 class="Hamburger" id="toggleAdmin"><ion-icon name="list-outline"></ion-icon></h2>
+                    <span><h2>Jumia</h2><ion-icon name="star"></ion-icon></span>
+                    <form action="">
+                        <div class="search-container">
+                            <ion-icon name="search-outline"></ion-icon>
+                            <input  type="text" id="searchbox" placeholder="search products here">
+                        </div>
+                        <input type="submit" value="Search">
+                    </form>
+                    <a href="admin.html">Admin</a>
+                    <p id="cartStatusContainer">
+                        <ion-icon name="cart-outline" id="cartStatus"></ion-icon>
+                        <span class="cartstatus" id="cartStatusValue">0</span>
+                    </p>
+                </nav>
+            </header>
+        
+            <!-- ========== MAIN PRODUCT AREA ========== -->
+            <div class="main-product" id="productContainer">
+                >
+                <!-- Add more products as needed -->
+            </div>
+
+            <!-- xxxxxxxxxxxxxxxxxxxxxxxxx products added to carts display xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+            <div class="cardItems" id="ItemsAddedToCart">
+                <div class="closeproductlist">
+                    &times;
+                </div>
             </div>
         </div>
-        <nav>
-            <h2 class="Hamburger" id="toggleAdmin"><ion-icon name="list-outline"></ion-icon></h2>
-            <span><h2>Jumia</h2><ion-icon name="star"></ion-icon></span>
-            <form action="">
-                <div class="search-container">
-                    <ion-icon name="search-outline"></ion-icon>
-                    <input  type="text" id="searchbox" placeholder="search products here">
-                </div>
-                <input type="submit" value="Search">
-            </form>
-            <a href="admin.html">Admin</a>
-            <p><ion-icon name="cart-outline"></ion-icon><span>cart</span></p>
-        </nav>
-    </header>
     
-    <!-- ========== MAIN PRODUCT AREA ========== -->
-    <div class="main-product" id="productContainer">
-        
-        <!-- Add more products as needed -->
-    </div>
-
-   <!-- ========== admin login goes here ========== -->
-   <form action="">
-    <div class="mail-container">
-        
-    </div>
-   </form>
-    <script type="module" src="./dist/index.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
+        <script type="module" src="./dist/index.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
 </html>

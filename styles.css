@@ -12,11 +12,18 @@ body {
 }
 
 /* ========== HEADER SECTION ========== */
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+}
 header {
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .confirm {
@@ -140,7 +147,6 @@ nav > p {
     margin-right: 3rem;
     display: flex;
     align-items: center;
-    gap: 0.6rem;
     flex-shrink: 0;
 }
 
@@ -164,6 +170,7 @@ nav > p > span {
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
     padding: 20px;
+    
 }
 
 .main-product > .product {
@@ -173,6 +180,7 @@ nav > p > span {
     margin-bottom: 10px;
     border-radius: 5px;
     transition: all ease-in-out;
+    /* display: none; */
 }
 
 .main-product > .product:hover {
@@ -194,17 +202,18 @@ nav > p > span {
 .product-detail{
     flex-wrap: wrap;
     background-color: #ffffff;
-    width: 48rem;
+    width: 50rem;
     padding: 1rem 2rem;
     display: flex;
     border-radius: 10px;
     box-sizing: border-box;
-    gap: 6rem;
+    gap: 1rem;
+    box-shadow: 1px 2px 2px 1px#aaa;
 }
 .product-detail > .left{
     padding: 1rem 2rem;
     border-right: none;
-    width: 16rem;
+    width: 22rem;
     padding: 2rem;
 }
 .product-detail > .left > img{
@@ -222,7 +231,6 @@ nav > p > span {
     padding: 2rem;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    
 }
 .right > .buttons{
     display: flex;
@@ -252,6 +260,53 @@ nav > p > span {
     border-radius: 5px;
     color: #fff;
     font-size: large;
+}
+.product-detail > .closebtn{
+    width: 3rem;
+    height: 3rem;
+    margin-left: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xxx-large;
+    font-weight: bold;
+    padding: 10px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #aaa;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+.product-detail > .closebtn:hover{
+    background-color: #000;
+}
+/* ========== cart status ======== */
+.cartstatus{
+    color: #ff9900;
+    margin-top: -20px;
+}
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Added to cart items xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+.cardItems{
+    background-color: #f9faed;
+    margin: 0 5rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: solid 1px #ccc;
+    width: 70%;
+}
+
+.closeproductlist{
+    width: 3rem;
+    height: 3rem;
+    background-color: #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: xxx-large;
+    font-weight: bold;
+    color: #f9faed;
+    margin-left: 62rem;
 }
 /* Media Queries */
 @media (max-width: 1200px) {
