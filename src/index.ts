@@ -76,26 +76,26 @@ const displayProduct = async (productId: string) => {
         const dropFromCartButton = document.querySelector('.drop-from-cart') as HTMLElement;
 
         if (addToCartButton) {
-        addToCartButton.addEventListener('click', () => {
-        cartQuantity++;
-        cartTotal += product.price;
-        updateCartStatus();
-        showMessage("Product added successfully");
+            addToCartButton.addEventListener('click', () => {
+                cartQuantity++;
+                cartTotal += product.price;
+                updateCartStatus();
+                showMessage("Product added successfully");
 
-        // Append the product HTML to the "ItemsAddedToCart" container
-        document.getElementById("ItemsAddedToCart")?.insertAdjacentHTML('beforeend', `
-            <div class="product productgap" data-product-id="${product.id}" >
-                <div>
-                    <img src="${product.imageUrl}" alt="${product.product}"styles="width: 4rem">
-                    <h3>${product.product}</h3>
-                    <p><b>Description:</b> ${product.description}</p>
-                    <p><b>Price:</b> $${product.amount}</p>
-                </div>
-                
-            </div>
-        `);
-    });
-}
+                // Append the product HTML to the "ItemsAddedToCart" container
+                document.getElementById("ItemsAddedToCart")?.insertAdjacentHTML('beforeend', `
+                    <div class="product productgap" data-product-id="${product.id}" >
+                        <div>
+                            <img src="${product.imageUrl}" alt="${product.product}"styles="width: 4rem">
+                            <h3>${product.product}</h3>
+                            <p><b>Description:</b> ${product.description}</p>
+                            <p><b>Price:</b> $${product.amount}</p>
+                        </div>
+                        
+                    </div>
+                `);
+            });
+        }
 
         if (dropFromCartButton) {
             dropFromCartButton.addEventListener('click', () => {
@@ -108,23 +108,8 @@ const displayProduct = async (productId: string) => {
             });
         }
         // Function to toggle the display productlist container and product container
-    const toggleContainers = () => {
-        const mainProduct = document.querySelector('.main-product') as HTMLElement | null;
-        const cardItems = document.querySelector('.cardItems') as HTMLElement | null;
-
-        if (!mainProduct || !cardItems) {
-            console.error('Containers not found');
-            return;
-        }
-        if (cardItems.style.display === 'block') {
-            cardItems.style.display = 'none';
-            mainProduct.style.display = 'grid';
-        } else {
-            cardItems.style.display = 'block';
-            mainProduct.style.display = 'none';
-        }
-    };
-
+        
+    
         // Select the close button and set up the click handler for it
         const closeButton = document.querySelector('.closebtn') as HTMLElement;
         if (closeButton) {
@@ -154,6 +139,36 @@ const setupProductClickHandlers = () => {
         });
     });
 };
+// Event listener when cart icon clicked display products added to cart
+const displayCartProducts = () => {
+    const cartIcon = document.getElementById('cartStatusContainer') as HTMLElement;
+    const cartItems = document.getElementById('ItemsAddedToCart') as HTMLElement;
+    const mainProduct = document.querySelector('.main-product') as HTMLElement;
+
+    cartIcon.addEventListener('click', () => {
+        if (mainProduct) {
+            mainProduct.style.display = 'none';
+        }
+        if (cartItems) {
+            cartItems.style.display = 'block';
+        }
+    });
+};
+
+// Ensure the function is called to set up the event listener
+displayCartProducts();
+
+//function to close icon in the container of products added to cart
+const closeAddedProductToContainer = document.querySelector('closeproductlist') as HTMLElement;
+
+
+
+
+
+
+
+
+
 
 // Initialize fetch and display products
 fetchAndDisplayProducts();

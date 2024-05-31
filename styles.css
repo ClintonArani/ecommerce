@@ -293,6 +293,7 @@ nav > p > span {
     border-radius: 10px;
     border: solid 1px #ccc;
     width: 70%;
+    display: none;
 }
 
 .closeproductlist{
